@@ -25,56 +25,102 @@
     </nav>
   </header>
 
-<main class="home-scroll" id="homeScroll">
-  <section class="portfolio-stage">
-    <div class="page page-one">
-      <div class="page-bg page-one-bg"></div>
+  <main class="home-scroll" id="homeScroll">
+    <section class="portfolio-stage">
+      <div class="page page-one">
+        <div class="page-bg page-one-bg"></div>
 
-      <div class="hero-center">
-        <h1 class="hero-title">
-          <span id="typingText"></span>
-        </h1>
+        <div class="hero-center">
+          <h1 class="hero-title">
+            <span id="typingText"></span>
+          </h1>
+        </div>
+
+        <img src="assets/hand_hero.png" alt="" class="hero-hand" />
       </div>
 
-      <img src="assets/hand_hero.png" alt="" class="hero-hand" />
-    </div>
+      <div class="page page-two">
+        <div class="page-bg page-two-bg"></div>
 
-    <div class="page page-two">
-      <div class="page-bg page-two-bg"></div>
+        <h2 class="second-title">
+          <span id="secondTypingText"></span>
+        </h2>
 
-      <h2 class="second-title">
-        <span id="secondTypingText"></span>
+        <img src="assets/astronaut_reading.png" alt="" class="astronaut" />
+      </div>
+
+      <div class="page page-three">
+          <div class="page-bg page-three-bg"></div>
+
+          <h2 class="third-title">
+              <span id="thirdTypingText"></span>
+          </h2>
+
+          <img src="assets/meadow.png" alt="" class="tv-scene" />
+      </div>
+
+      <div class="page page-four">
+      <div class="page-bg page-four-bg"></div>
+
+      <div class="fourth-content">
+          <h2 class="fourth-title">
+          <span id="fourthTypingText"></span>
+          </h2>
+
+          <a href="#" class="explore-button">Explore</a>
+      </div>
+
+      <img src="assets/sign.png" alt="" class="sign-scene" />
+      </div>
+    </section>
+  </main>
+
+  <section class="explore-overlay" id="exploreOverlay">
+    <button type="button" class="overlay-back-button" id="overlayBackButton">
+      ‹ Go Back
+    </button>
+
+    <div class="explore-panel">
+      <h2 class="explore-question">
+        <span id="exploreTypingText"></span>
       </h2>
 
-      <img src="assets/astronaut_reading.png" alt="" class="astronaut" />
-    </div>
+      <form class="tag-form" id="tagForm">
+        <label class="tag-label" for="tagInput">Tags</label>
 
-    <div class="page page-three">
-        <div class="page-bg page-three-bg"></div>
+          <div class="tag-input-wrap" id="selectedTags">
+            <input id="tagInput" type="text" aria-label="Tags" />
+          </div>
 
-        <h2 class="third-title">
-            <span id="thirdTypingText"></span>
-        </h2>
+          <div class="tag-options" id="tagOptions">
+            <button type="button">Visual Design</button>
+            <button type="button">Prints</button>
+            <button type="button">Animation</button>
+            <button type="button">Video Editing</button>
+            <button type="button">Branding</button>
+            <button type="button">Figma</button>
+            <button type="button">Front-End Development</button>
+            <button type="button">UI/UX</button>
+            <button type="button">Graphic Design</button>
+          </div>
 
-        <img src="assets/meadow.png" alt="" class="tv-scene" />
-    </div>
-
-    <div class="page page-four">
-    <div class="page-bg page-four-bg"></div>
-
-    <div class="fourth-content">
-        <h2 class="fourth-title">
-        <span id="fourthTypingText"></span>
-        </h2>
-
-        <a href="#" class="explore-button">Explore</a>
-    </div>
-
-    <img src="assets/sign.png" alt="" class="sign-scene" />
+          <button type="button" class="continue-button">Continue</button>
+      </form>
     </div>
   </section>
-</main>
 
+  <section class="loading-page" id="loadingPage">
+    <img src="assets/hot air balloon.png" alt="" class="loading-balloon" />
+
+    <div class="loading-content">
+      <div class="loading-bar">
+        <div class="loading-bar-fill"></div>
+      </div>
+
+      <p class="loading-text">Curating your experience...</p>
+    </div>
+  </section>
+  
   <script src="script.js"></script>
 </body>
 </html>
