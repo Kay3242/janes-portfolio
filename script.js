@@ -1,5 +1,7 @@
 const root = document.documentElement;
+
 const homeScroll = document.getElementById("homeScroll");
+const worksStack = document.getElementById("worksStack");
 
 const typingText = document.getElementById("typingText");
 const secondTypingText = document.getElementById("secondTypingText");
@@ -10,6 +12,9 @@ const exploreTypingText = document.getElementById("exploreTypingText");
 const exploreButton = document.querySelector(".explore-button");
 const exploreOverlay = document.getElementById("exploreOverlay");
 const tagForm = document.getElementById("tagForm");
+const overlayBackButton = document.getElementById("overlayBackButton");
+const continueButton = document.querySelector(".continue-button");
+const loadingPage = document.getElementById("loadingPage");
 
 const selectedTags = document.getElementById("selectedTags");
 const tagOptions = document.getElementById("tagOptions");
@@ -22,11 +27,6 @@ const fourthText = "HERE'S WHAT I'VE BEEN WORKING ON.";
 const exploreText = "WHAT ARE YOU LOOKING FOR?";
 
 const pageCount = 4;
-
-const overlayBackButton = document.getElementById("overlayBackButton");
-
-const continueButton = document.querySelector(".continue-button");
-const loadingPage = document.getElementById("loadingPage");
 
 let currentPage = 0;
 let currentProgress = 0;
@@ -121,8 +121,12 @@ function snapToPage(pageNumber) {
   requestAnimationFrame(animateSnap);
 }
 
+function isExploreOpen() {
+  return exploreOverlay && exploreOverlay.classList.contains("is-open");
+}
+
 function handleWheel(event) {
-  if (exploreOverlay.classList.contains("is-open")) return;
+  if (!homeScroll || isExploreOpen()) return;
 
   event.preventDefault();
 
@@ -136,8 +140,7 @@ function handleWheel(event) {
 }
 
 function handleKeydown(event) {
-  if (exploreOverlay.classList.contains("is-open")) return;
-  if (isSnapping) return;
+  if (!homeScroll || isExploreOpen() || isSnapping) return;
 
   if (event.key === "ArrowDown" || event.key === "PageDown" || event.key === " ") {
     event.preventDefault();
@@ -155,8 +158,7 @@ function handleTouchStart(event) {
 }
 
 function handleTouchEnd(event) {
-  if (exploreOverlay.classList.contains("is-open")) return;
-  if (isSnapping) return;
+  if (!homeScroll || isExploreOpen() || isSnapping) return;
 
   const touchEndY = event.changedTouches[0].clientY;
   const difference = touchStartY - touchEndY;
@@ -173,6 +175,8 @@ function handleTouchEnd(event) {
 function openExploreOverlay(event) {
   event.preventDefault();
 
+  if (!exploreOverlay || !tagForm) return;
+
   exploreOverlay.classList.add("is-open");
 
   if (exploreStarted) return;
@@ -184,6 +188,24 @@ function openExploreOverlay(event) {
       tagForm.classList.add("is-visible");
     });
   }, 500);
+}
+
+function closeExploreOverlay() {
+  if (!exploreOverlay) return;
+
+  exploreOverlay.classList.remove("is-open");
+  snapToPage(3);
+}
+
+function openLoadingPage() {
+  if (!exploreOverlay || !loadingPage) return;
+
+  exploreOverlay.classList.remove("is-open");
+  loadingPage.classList.add("is-open");
+
+  setTimeout(() => {
+    window.location.href = "works.html";
+  }, 3200);
 }
 
 function createSelectedTag(label, sourceButton) {
@@ -209,6 +231,8 @@ function createSelectedTag(label, sourceButton) {
 }
 
 function animateRemainingTags(beforeRects) {
+  if (!tagOptions) return;
+
   const buttons = [...tagOptions.querySelectorAll("button:not([hidden])")];
 
   buttons.forEach((button) => {
@@ -248,6 +272,8 @@ function makeFlyingTag(label, rect) {
 }
 
 function animateTagToBar(button) {
+  if (!tagOptions || !selectedTags || !tagInput) return;
+
   const label = button.textContent.trim();
   const startRect = button.getBoundingClientRect();
 
@@ -258,7 +284,6 @@ function animateTagToBar(button) {
 
   const selectedTag = createSelectedTag(label, button);
   const endRect = selectedTag.getBoundingClientRect();
-
   const flyingTag = makeFlyingTag(label, startRect);
 
   button.hidden = true;
@@ -286,6 +311,8 @@ function animateTagToBar(button) {
 }
 
 function animateTagBackToOptions(tag, sourceButton, label) {
+  if (!tagOptions) return;
+
   const startRect = tag.getBoundingClientRect();
 
   const beforeRects = new Map();
@@ -297,7 +324,6 @@ function animateTagBackToOptions(tag, sourceButton, label) {
   sourceButton.style.visibility = "hidden";
 
   const endRect = sourceButton.getBoundingClientRect();
-
   const flyingTag = makeFlyingTag(label, startRect);
 
   tag.remove();
@@ -324,40 +350,143 @@ function animateTagBackToOptions(tag, sourceButton, label) {
   };
 }
 
-function closeExploreOverlay() {
-  exploreOverlay.classList.remove("is-open");
-  snapToPage(3);
+function initHomePage() {
+  if (!homeScroll) return;
+
+  typeText(typingText, firstText, { index: 0 }, 90);
+  setAnimationProgress(0);
+
+  window.addEventListener("wheel", handleWheel, { passive: false });
+  window.addEventListener("keydown", handleKeydown);
+  window.addEventListener("touchstart", handleTouchStart, { passive: true });
+  window.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+  window.addEventListener("resize", () => {
+    window.scrollTo(0, currentPage * window.innerHeight);
+    setAnimationProgress(currentPage / (pageCount - 1));
+  });
 }
 
-function openLoadingPage() {
-  exploreOverlay.classList.remove("is-open");
-  loadingPage.classList.add("is-open");
+function initExploreOverlay() {
+  if (exploreButton) {
+    exploreButton.addEventListener("click", openExploreOverlay);
+  }
+
+  if (overlayBackButton) {
+    overlayBackButton.addEventListener("click", closeExploreOverlay);
+  }
+
+  if (continueButton) {
+    continueButton.addEventListener("click", openLoadingPage);
+  }
+
+  if (tagOptions) {
+    tagOptions.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+
+      if (!button || button.hidden || button.style.visibility === "hidden") return;
+
+      animateTagToBar(button);
+    });
+  }
+}
+
+function initWorksPage() {
+  if (!worksStack) return;
+
+  const workCards = [...worksStack.querySelectorAll(".work-card")];
+  let currentWorkIndex = 0;
+  let workSnapping = false;
+  let workTouchStartY = 0;
+
+  function buildWorkDots() {
+    workCards.forEach((card, cardIndex) => {
+      const dotsWrap = card.querySelector(".work-dots");
+      if (!dotsWrap) return;
+
+      dotsWrap.innerHTML = "";
+
+      workCards.forEach((_, dotIndex) => {
+        const dot = document.createElement("span");
+
+        if (dotIndex === cardIndex) {
+          dot.classList.add("active");
+        }
+
+        dotsWrap.appendChild(dot);
+      });
+    });
+  }
+
+  function snapToWorkCard(index) {
+    const nextIndex = clamp(index, 0, workCards.length - 1);
+
+    if (nextIndex === currentWorkIndex || workSnapping) return;
+
+    workSnapping = true;
+
+    const startTop = worksStack.scrollTop;
+    const cardHeight = workCards[0].offsetHeight;
+    const endTop = nextIndex * cardHeight;
+    const startTime = performance.now();
+    const duration = 1050;
+
+    currentWorkIndex = nextIndex;
+
+    function animateScroll(now) {
+      const elapsed = now - startTime;
+      const progress = clamp(elapsed / duration, 0, 1);
+      const eased = easeFloaty(progress);
+
+      worksStack.scrollTop = startTop + (endTop - startTop) * eased;
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        worksStack.scrollTop = endTop;
+        workSnapping = false;
+      }
+    }
+
+    requestAnimationFrame(animateScroll);
+  }
+
+  worksStack.addEventListener("wheel", (event) => {
+    event.preventDefault();
+
+    if (workSnapping) return;
+
+    if (event.deltaY > 0) {
+      snapToWorkCard(currentWorkIndex + 1);
+    } else if (event.deltaY < 0) {
+      snapToWorkCard(currentWorkIndex - 1);
+    }
+  }, { passive: false });
+
+  worksStack.addEventListener("touchstart", (event) => {
+    workTouchStartY = event.touches[0].clientY;
+  }, { passive: true });
+
+  worksStack.addEventListener("touchend", (event) => {
+    if (workSnapping) return;
+
+    const touchEndY = event.changedTouches[0].clientY;
+    const difference = workTouchStartY - touchEndY;
+
+    if (Math.abs(difference) < 40) return;
+
+    if (difference > 0) {
+      snapToWorkCard(currentWorkIndex + 1);
+    } else {
+      snapToWorkCard(currentWorkIndex - 1);
+    }
+  }, { passive: true });
+
+  buildWorkDots();
 }
 
 window.addEventListener("load", () => {
-  typeText(typingText, firstText, { index: 0 }, 90);
-  setAnimationProgress(0);
+  initHomePage();
+  initExploreOverlay();
+  initWorksPage();
 });
-
-exploreButton.addEventListener("click", openExploreOverlay);
-
-tagOptions.addEventListener("click", (event) => {
-  const button = event.target.closest("button");
-
-  if (!button || button.hidden || button.style.visibility === "hidden") return;
-
-  animateTagToBar(button);
-});
-
-window.addEventListener("wheel", handleWheel, { passive: false });
-window.addEventListener("keydown", handleKeydown);
-window.addEventListener("touchstart", handleTouchStart, { passive: true });
-window.addEventListener("touchend", handleTouchEnd, { passive: true });
-
-window.addEventListener("resize", () => {
-  window.scrollTo(0, currentPage * window.innerHeight);
-  setAnimationProgress(currentPage / (pageCount - 1));
-});
-
-overlayBackButton.addEventListener("click", closeExploreOverlay);
-continueButton.addEventListener("click", openLoadingPage);
