@@ -26,132 +26,326 @@
         <section class="filter-bar">
         <span class="showing-label">Showing:</span>
 
-        <div class="active-filters">
+        <div class="active-filters" id="activeFilters">
             <button type="button">Branding <span>×</span></button>
             <button type="button">Graphic Design <span>×</span></button>
             <button type="button">Prints <span>×</span></button>
         </div>
 
-            <button type="button" class="edit-filters">
+            <button type="button" class="edit-filters" id="editFiltersButton">
                 Edit Filters
                 <img src="assets/filters-2-svgrepo-com.svg" alt="">
             </button>
         </section>
 
         <section class="works-stack" id="worksStack">
-        <article class="work-card featured-work">
-            <img src="assets/pause club_thumbnail.png" alt="Pause Club campaign thumbnail" class="work-image" />
-            <div class="work-overlay"></div>
+            
+            <!--Filter Menu-->
+            <div class="filter-menu" id="filterMenu">
+                <div class="filter-menu-inner">
+                    <button type="button" class="filter-menu-close" id="closeFilterMenu">×</button>
 
-            <div class="work-content">
-            <p class="work-kicker">Mental Health Awareness Campaign</p>
-            <h1>Pause Club</h1>
+                    <h2>Edit Your Filters</h2>
 
-            <div class="work-tags">
-                <span>Branding</span>
-                <span>Prints</span>
-                <span>Graphic Design</span>
+                    <div class="filter-options" id="filterOptions">
+                    <button type="button" data-filter="Visual Design">Visual Design <span>×</span></button>
+                    <button type="button" data-filter="Prints">Prints <span>✓</span></button>
+                    <button type="button" data-filter="Animation">Animation <span>×</span></button>
+                    <button type="button" data-filter="UI/UX">UI/UX <span>×</span></button>
+                    <button type="button" data-filter="Video Editing">Video Editing <span>×</span></button>
+                    <button type="button" data-filter="Branding">Branding <span>✓</span></button>
+                    <button type="button" data-filter="Figma">Figma <span>×</span></button>
+                    <button type="button" data-filter="Front-End Development">Front-End Development <span>×</span></button>
+                    <button type="button" data-filter="Graphic Design">Graphic Design <span>✓</span></button>
+                    </div>
+
+                    <button type="button" class="apply-filters-button" id="applyFiltersButton">
+                    Apply Filters
+                    </button>
+                </div>
             </div>
 
-            <a href="#" class="view-project-button">
-                View Project
-                <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
-            </a>
-            </div>
+            <!--Work Stack-->
+            <article class="work-card featured-work">
+                <img src="assets/pause club_thumbnail.png" alt="Pause Club campaign thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
 
-            <div class="work-dots" aria-hidden="true"></div>
+                <div class="work-content">
+                <p class="work-kicker">Mental Health Awareness Campaign</p>
+                <h1>Pause Club</h1>
 
-            <div class="scroll-hint">
-            <span>↓</span>
-            Scroll to explore
-            </div>
-        </article>
+                <div class="work-tags">
+                    <span>Branding</span>
+                    <span>Prints</span>
+                    <span>Graphic Design</span>
+                </div>
 
-        <article class="work-card">
-            <img src="assets/nanyang express_thumbnail.png" alt="Nanyang Express project thumbnail" class="work-image" />
-            <div class="work-overlay"></div>
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
 
-            <div class="work-content">
-            <p class="work-kicker">Local Cafe Rebranding</p>
-            <h1>Nanyang Express</h1>
+                <div class="work-dots" aria-hidden="true"></div>
 
-            <div class="work-tags">
-                <span>Branding</span>
-                <span>Prints</span>
-                <span>Graphic Design</span>
-            </div>
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
 
-            <a href="#" class="view-project-button">
-                View Project
-                <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
-            </a>
-            </div>
+            <article class="work-card featured-work">
+                <img src="assets/evopia_thumbnail.png" alt="Evopia campaign thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
 
-            <div class="work-dots" aria-hidden="true"></div>
+                <div class="work-content">
+                <p class="work-kicker">Bedding Website</p>
+                <h1>Evopia</h1>
 
-            <div class="scroll-hint">
-            <span>↓</span>
-            Scroll to explore
-            </div>
-        </article>
+                <div class="work-tags">
+                    <span>UI/UX</span>
+                    <span>Front-End Development</span>
+                </div>
 
-        <article class="work-card">
-            <img src="assets/sony_thumbnail.png" alt="Sony project thumbnail" class="work-image" />
-            <div class="work-overlay"></div>
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
 
-            <div class="work-content">
-            <p class="work-kicker">Visual Campaign</p>
-            <h1>Sony</h1>
+                <div class="work-dots" aria-hidden="true"></div>
 
-            <div class="work-tags">
-                <span>Visual Design</span>
-                <span>Branding</span>
-                <span>Graphic Design</span>
-            </div>
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
 
-            <a href="#" class="view-project-button">
-                View Project
-                <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
-            </a>
-            </div>
+            <article class="work-card featured-work">
+                <img src="assets/resumate_thumnail.png" alt="Resumate thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
 
-            <div class="work-dots" aria-hidden="true"></div>
+                <div class="work-content">
+                <p class="work-kicker">Portfolio Website</p>
+                <h1>Resumate</h1>
 
-            <div class="scroll-hint">
-            <span>↓</span>
-            Scroll to explore
-            </div>
-        </article>
+                <div class="work-tags">
+                    <span>UI/UX</span>
+                    <span>Figma</span>
+                </div>
 
-        <article class="work-card">
-            <img src="assets/layer up_thumnail.png" alt="Layer Up project thumbnail" class="work-image" />
-            <div class="work-overlay"></div>
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
 
-            <div class="work-content">
-            <p class="work-kicker">Interactive Visual System</p>
-            <h1>Layer Up</h1>
+                <div class="work-dots" aria-hidden="true"></div>
 
-            <div class="work-tags">
-                <span>Branding</span>
-                <span>Prints</span>
-                <span>Graphic Design</span>
-            </div>
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
 
-            <a href="#" class="view-project-button">
-                View Project
-                <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
-            </a>
-            </div>
+            <article class="work-card">
+                <img src="assets/nanyang express_thumbnail.png" alt="Nanyang Express project thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
 
-            <div class="work-dots" aria-hidden="true"></div>
+                <div class="work-content">
+                <p class="work-kicker">Local Cafe Rebranding</p>
+                <h1>Nanyang Express</h1>
 
-            <div class="scroll-hint">
-            <span>↓</span>
-            Scroll to explore
-            </div>
-        </article>
+                <div class="work-tags">
+                    <span>Branding</span>
+                    <span>Prints</span>
+                    <span>Graphic Design</span>
+                </div>
 
-        
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
+
+                <div class="work-dots" aria-hidden="true"></div>
+
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="assets/sony_thumbnail.png" alt="Sony project thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
+
+                <div class="work-content">
+                <p class="work-kicker">Visual Campaign</p>
+                <h1>Sony</h1>
+
+                <div class="work-tags">
+                    <span>Visual Design</span>
+                    <span>Branding</span>
+                    <span>Graphic Design</span>
+                </div>
+
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
+
+                <div class="work-dots" aria-hidden="true"></div>
+
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="assets/joey yap_thumbnail.png" alt="Joey Yap project thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
+
+                <div class="work-content">
+                <p class="work-kicker">Festival</p>
+                <h1>Joey Yap's Astrology Event</h1>
+
+                <div class="work-tags">
+                    <span>Visual Design</span>
+                    <span>Prints</span>
+                    <span>Graphic Design</span>
+                </div>
+
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
+
+                <div class="work-dots" aria-hidden="true"></div>
+
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="assets/layer up_thumnail.png" alt="Layer Up project thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
+
+                <div class="work-content">
+                <p class="work-kicker">Fashion Branding</p>
+                <h1>Layer Up</h1>
+
+                <div class="work-tags">
+                    <span>Branding</span>
+                    <span>Prints</span>
+                    <span>Graphic Design</span>
+                </div>
+
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
+
+                <div class="work-dots" aria-hidden="true"></div>
+
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="assets/void_thumnail.png" alt="Void project thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
+
+                <div class="work-content">
+                <p class="work-kicker">Fashion Branding</p>
+                <h1>VOID</h1>
+
+                <div class="work-tags">
+                    <span>Branding</span>
+                    <span>Prints</span>
+                    <span>Graphic Design</span>
+                </div>
+
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
+
+                <div class="work-dots" aria-hidden="true"></div>
+
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="assets/yellow summer_thumbnail.png" alt="Yellow Summer project thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
+
+                <div class="work-content">
+                <p class="work-kicker">Animation</p>
+                <h1>Yellow Summer</h1>
+
+                <div class="work-tags">
+                    <span>Animation</span>
+                    <span>Video Editing</span>
+                    <span>Graphic Design</span>
+                </div>
+
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
+
+                <div class="work-dots" aria-hidden="true"></div>
+
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
+
+            <article class="work-card">
+                <img src="assets/theory of space_thumbnail.png" alt="Theory of Space project thumbnail" class="work-image" />
+                <div class="work-overlay"></div>
+
+                <div class="work-content">
+                <p class="work-kicker">Short Film</p>
+                <h1>The Theory of Space</h1>
+
+                <div class="work-tags">
+                    <span>Animation</span>
+                    <span>Video Editing</span>
+                    <span>Graphic Design</span>
+                </div>
+
+                <a href="#" class="view-project-button">
+                    View Project
+                    <img src="assets/arrow-sm-right-svgrepo-com.svg" alt="" />
+                </a>
+                </div>
+
+                <div class="work-dots" aria-hidden="true"></div>
+
+                <div class="scroll-hint">
+                <span>↓</span>
+                Scroll to explore
+                </div>
+            </article>
+
+
+
         </section>
     </main>
 

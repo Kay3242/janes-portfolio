@@ -671,6 +671,7 @@ body {
 }
 
 .works-page {
+  position: relative;
   height: calc(100vh - 58px);
   display: flex;
   flex-direction: column;
@@ -689,6 +690,121 @@ body {
   padding: 0 20px;
   background: #000000;
   color: #ffffff;
+}
+
+.filter-menu {
+  position: absolute;
+  top: 62px;
+  left: 50%;
+  z-index: 80;
+  width: min(88vw, 920px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-18px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.filter-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.filter-menu-inner {
+  position: relative;
+  padding: 36px;
+  border-radius: 48px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.filter-menu h2 {
+  margin-bottom: 28px;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 42px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.filter-menu-close {
+  position: absolute;
+  top: 26px;
+  right: 34px;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-size: 48px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 16px;
+}
+
+.filter-options button {
+  min-height: 60px;
+  padding: 0 22px 0 30px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #666666;
+  color: #ffffff;
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.filter-options button.is-active {
+  background: #650909;
+}
+
+.filter-options span {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  font-size: 38px;
+  line-height: 1;
+}
+
+.filter-options span img {
+  width: 32px;
+  height: 32px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.apply-filters-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 310px;
+  min-height: 66px;
+  margin: 44px auto 0;
+  padding: 0 34px;
+  border: 0;
+  border-radius: 999px;
+  background: #650909;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.apply-filters-button:hover {
+  background: #ffffff;
+  color: #650909;
 }
 
 .showing-label {
@@ -736,15 +852,18 @@ body {
 }
 
 .works-stack {
-  height: calc(100vh - 106px);
+  position: relative;
+  flex: 1;
+  height: auto;
+  min-height: 0;
   overflow: hidden;
   background: #000000;
 }
 
 .work-card {
   position: relative;
-  height: calc(100vh - 106px);
-  min-height: calc(100vh - 106px);
+  height: 100%;
+  min-height: 100%;
   overflow: hidden;
   color: #ffffff;
 }
