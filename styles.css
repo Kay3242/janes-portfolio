@@ -1073,6 +1073,25 @@ body {
   background-image: url("assets/pause club/PAUSE CLUB HERO IMAGE@4x.png");
 }
 
+.evopia-hero {
+  background-color: #e7decd;
+  background-image: url("assets/evopia/evopia hero.png");
+  background-position: center right;
+}
+
+.evopia-back {
+  color: #ffffff;
+}
+
+.evopia-hero-copy {
+  left: 34px;
+  top: 30%;
+}
+
+.evopia-scroll-hint {
+  color: #ffffff;
+}
+
 .project-back {
   position: absolute;
   top: 22px;
@@ -1562,6 +1581,283 @@ body {
   background: transparent;
 }
 
+.evopia-desktop-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 44px 44px 52px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.evopia-desktop-section h2 {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 18px;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(58px, 7vw, 92px);
+  line-height: 0.9;
+  color: #650909;
+  text-transform: uppercase;
+}
+
+.evopia-section-subtitle {
+  position: relative;
+  z-index: 2;
+  margin: -20px 0 24px;
+  color: #650909;
+  font-size: 22px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.evopia-desktop-frame {
+  position: relative;
+  z-index: 2;
+  width: min(90vw, 1080px);
+  margin: 0 auto;
+}
+
+.evopia-desktop-frame img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.evopia-desktop-screen {
+  position: absolute;
+  z-index: 1;
+  left: 7%;
+  top: 5%;
+  width: 85%;
+  height: 62.1%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.evopia-desktop-screen iframe {
+  display: block;
+  width: 160%;
+  height: 160%;
+  border: 0;
+  transform: scale(0.625);
+  transform-origin: top left;
+}
+
+.evopia-desktop-screen iframe::-webkit-scrollbar {
+  display: none;
+}
+
+.evopia-mobile-section {
+  min-height: 100vh;
+  padding: 54px 44px 80px;
+  background: #ffffff;
+}
+
+.evopia-mobile-section h2 {
+  margin-bottom: 28px;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1;
+  color: #650909;
+  text-transform: uppercase;
+}
+
+.evopia-mobile-layout {
+  display: grid;
+  grid-template-columns: 760px minmax(320px, 520px);
+  gap: 24px;
+  align-items: center;
+  margin-top: -18px;
+}
+
+.evopia-phone-frame {
+  position: relative;
+  width: 760px;
+}
+
+.evopia-phone-frame img {
+  position: relative;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.evopia-phone-screen {
+  position: absolute;
+  z-index: 1;
+  left: 28.7%;
+  top: 7%;
+  width: 42.7%;
+  height: 88%;
+  overflow: hidden;
+  border-radius: 34px;
+  background: #ffffff;
+}
+
+.evopia-phone-screen iframe {
+  display: block;
+  width: 390px;
+  height: 780px;
+  border: 0;
+  transform: scale(0.84);
+  transform-origin: top left;
+}
+
+.evopia-mobile-copy {
+  display: grid;
+  gap: 8px;
+  max-width: 520px;
+  color: #650909;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.evopia-mobile-copy p {
+  margin: 0;
+}
+
+.evopia-timeline-section {
+  min-height: 100vh;
+  padding: 54px 44px 90px;
+  background: #ffffff;
+}
+
+.evopia-timeline-section h2 {
+  margin-bottom: 28px;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1;
+  color: #650909;
+  text-transform: uppercase;
+}
+
+.evopia-timeline-list {
+  display: grid;
+  gap: 14px;
+  max-width: 1120px;
+}
+
+.evopia-timeline-item {
+  display: grid;
+  grid-template-columns: minmax(0, 52vw) minmax(320px, 430px);
+  gap: 42px;
+  align-items: end;
+}
+
+.evopia-timeline-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.evopia-timeline-copy {
+  align-self: end;
+  max-width: 360px;
+  margin-bottom: 8px;
+  color: #650909;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.evopia-timeline-copy p {
+  margin: 0;
+}
+
+.evopia-desktop-section,
+.evopia-mobile-section,
+.evopia-timeline-section {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  overflow: visible;
+}
+
+.evopia-desktop-section > *,
+.evopia-mobile-section > *,
+.evopia-timeline-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.evopia-floating-circles .circle {
+  background: rgba(178, 155, 138, 0.5);
+}
+
+.evopia-floating-circles .circle-one {
+  width: 90px;
+  height: 90px;
+  right: 20%;
+  top: 840px;
+}
+
+.evopia-floating-circles .circle-two {
+  width: 270px;
+  height: 270px;
+  right: -110px;
+  top: 1000px;
+}
+
+.evopia-floating-circles .circle-three {
+  width: 180px;
+  height: 180px;
+  left: -70px;
+  top: 1420px;
+}
+
+.evopia-floating-circles .circle-four {
+  width: 250px;
+  height: 250px;
+  right: -90px;
+  top: 1950px;
+}
+
+.evopia-floating-circles .circle-five {
+  width: 115px;
+  height: 115px;
+  left: 43%;
+  top: 2320px;
+}
+
+.evopia-floating-circles .circle-six {
+  width: 210px;
+  height: 210px;
+  right: -76px;
+  top: 2920px;
+}
+
+.evopia-floating-circles .circle-seven {
+  width: 135px;
+  height: 135px;
+  left: -42px;
+  top: 3380px;
+}
+
+.evopia-floating-circles .circle-eight {
+  width: 80px;
+  height: 80px;
+  right: 18%;
+  top: 3740px;
+}
+
+.evopia-floating-circles .circle-nine {
+  width: 230px;
+  height: 230px;
+  right: -84px;
+  top: 4200px;
+}
+
+.evopia-floating-circles .circle-ten {
+  width: 190px;
+  height: 190px;
+  left: -68px;
+  top: 4740px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
@@ -1686,6 +1982,44 @@ body {
   .project-tags {
     font-size: 16px;
     gap: 12px;
+  }
+
+  .evopia-desktop-section {
+  padding: 44px 20px 56px;
+  }
+
+  .evopia-desktop-section h2 {
+    margin-bottom: 34px;
+  }
+
+  .evopia-desktop-frame {
+    width: 112vw;
+    margin-left: -10vw;
+  }
+
+  .evopia-shape-two {
+    right: -190px;
+  }
+
+  .evopia-shape-three {
+    left: -150px;
+  }
+
+  .evopia-timeline-section {
+    padding: 44px 20px 70px;
+  }
+
+  .evopia-timeline-list {
+    gap: 30px;
+  }
+
+  .evopia-timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .evopia-timeline-copy {
+    max-width: 520px;
   }
 }
 
