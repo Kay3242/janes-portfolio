@@ -646,182 +646,40 @@ document.addEventListener("DOMContentLoaded", () => {
   initWorksPage();
 });
 
-/* =========================================================
-   PORTFOLIO POLISH
-   ========================================================= */
+/* CUSTOM CURSOR */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  /* CUSTOM CURSOR */
+function initCustomCursor() {
+  if (!window.matchMedia("(pointer: fine)").matches) return;
 
   const cursor = document.createElement("div");
-  cursor.className = "fancy-cursor";
+  cursor.className = "custom-cursor";
   cursor.setAttribute("aria-hidden", "true");
+
   document.body.appendChild(cursor);
 
-  window.addEventListener("pointermove", (event) => {
+  window.addEventListener("mousemove", (event) => {
     cursor.style.left = `${event.clientX}px`;
     cursor.style.top = `${event.clientY}px`;
+    cursor.classList.add("is-visible");
   });
 
-  document.querySelectorAll("a, button, input").forEach((element) => {
-    element.addEventListener("pointerenter", () => {
+  document.querySelectorAll("a, button").forEach((element) => {
+    element.addEventListener("mouseenter", () => {
       cursor.classList.add("is-hovering");
     });
 
-    element.addEventListener("pointerleave", () => {
+    element.addEventListener("mouseleave", () => {
       cursor.classList.remove("is-hovering");
     });
   });
 
-  /* MAGNETIC BUTTONS */
-
-  if (!reduceMotion) {
-    document
-      .querySelectorAll(
-        ".explore-button, .view-project-button, .continue-button"
-      )
-      .forEach((button) => {
-        button.addEventListener("pointermove", (event) => {
-          const rect = button.getBoundingClientRect();
-          const x = event.clientX - rect.left - rect.width / 2;
-          const y = event.clientY - rect.top - rect.height / 2;
-
-          button.style.translate = `${x * 0.12}px ${y * 0.16}px`;
-        });
-
-        button.addEventListener("pointerleave", () => {
-          button.style.translate = "0 0";
-        });
-      });
-  }
-
-  /* HOMEPAGE POINTER PARALLAX */
-
-  const homeStage = document.querySelector(".portfolio-stage");
-
-  if (homeStage && !reduceMotion) {
-    const parallaxObjects = [
-      { element: document.querySelector(".hero-hand"), amount: 12 },
-      { element: document.querySelector(".astronaut"), amount: 20 },
-      { element: document.querySelector(".tv-scene"), amount: 8 },
-      { element: document.querySelector(".sign-scene"), amount: 14 }
-    ];
-
-    let animationFrame;
-
-    homeStage.addEventListener("pointermove", (event) => {
-      cancelAnimationFrame(animationFrame);
-
-      animationFrame = requestAnimationFrame(() => {
-        const x = event.clientX / window.innerWidth - 0.5;
-        const y = event.clientY / window.innerHeight - 0.5;
-
-        parallaxObjects.forEach(({ element, amount }) => {
-          if (!element) return;
-
-          element.style.translate =
-            `${x * amount}px ${y * amount}px`;
-        });
-      });
-    });
-
-    homeStage.addEventListener("pointerleave", () => {
-      parallaxObjects.forEach(({ element }) => {
-        if (element) element.style.translate = "0 0";
-      });
-    });
-  }
-
-  /* WORKS-CARD ENTRANCE ANIMATIONS */
-
-  const worksStack = document.getElementById("worksStack");
-
-  if (worksStack) {
-    let cardFrame;
-
-    function updateActiveWorkCard() {
-      const visibleCards = [
-        ...worksStack.querySelectorAll(".work-card:not([hidden])")
-      ];
-
-      if (!visibleCards.length) return;
-
-      const closestCard = visibleCards.reduce((closest, card) => {
-        const distance = Math.abs(
-          worksStack.scrollTop - card.offsetTop
-        );
-
-        return distance < closest.distance
-          ? { card, distance }
-          : closest;
-      }, {
-        card: visibleCards[0],
-        distance: Infinity
-      }).card;
-
-      document.querySelectorAll(".work-card").forEach((card) => {
-        card.classList.toggle(
-          "is-active-card",
-          card === closestCard && !card.hidden
-        );
-      });
-    }
-
-    worksStack.addEventListener("scroll", () => {
-      cancelAnimationFrame(cardFrame);
-      cardFrame = requestAnimationFrame(updateActiveWorkCard);
-    });
-
-    updateActiveWorkCard();
-
-    const filterObserver = new MutationObserver(updateActiveWorkCard);
-
-    document.querySelectorAll(".work-card").forEach((card) => {
-      filterObserver.observe(card, {
-        attributes: true,
-        attributeFilter: ["hidden"]
-      });
-    });
-  }
-
-  /* CINEMATIC PAGE TRANSITIONS */
-
-  document.querySelectorAll("a[href]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const href = link.getAttribute("href");
-
-      if (
-        !href ||
-        href === "#" ||
-        href.startsWith("#") ||
-        href.startsWith("mailto:") ||
-        href.startsWith("tel:") ||
-        link.target === "_blank" ||
-        event.ctrlKey ||
-        event.metaKey ||
-        event.shiftKey
-      ) {
-        return;
-      }
-
-      const destination = new URL(href, window.location.href);
-
-      if (destination.origin !== window.location.origin) return;
-
-      event.preventDefault();
-      document.body.classList.add("is-leaving");
-
-      setTimeout(() => {
-        window.location.href = destination.href;
-      }, reduceMotion ? 0 : 420);
-    });
+  document.documentElement.addEventListener("mouseleave", () => {
+    cursor.classList.remove("is-visible");
   });
 
-  window.addEventListener("pageshow", () => {
-    document.body.classList.remove("is-leaving");
+  document.documentElement.addEventListener("mouseenter", () => {
+    cursor.classList.add("is-visible");
   });
-});
+}
+
+document.addEventListener("DOMContentLoaded", initCustomCursor);

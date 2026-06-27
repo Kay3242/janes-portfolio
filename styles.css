@@ -288,11 +288,6 @@ body {
   transition: background 180ms ease, color 180ms ease;
 }
 
-.explore-button:hover {
-  background: #ffffff;
-  color: #620909;
-}
-
 .sign-scene {
   position: absolute;
   z-index: 5;
@@ -576,11 +571,6 @@ body {
   transition: background 180ms ease, color 180ms ease;
 }
 
-.continue-button:hover {
-  background: #ffffff;
-  color: #620909;
-}
-
 /* LOADING PAGE */
 
 .loading-page {
@@ -859,11 +849,6 @@ body {
   transition: background 180ms ease, color 180ms ease;
 }
 
-.apply-filters-button:hover {
-  background: #ffffff;
-  color: #650909;
-}
-
 .showing-label {
   font-size: 14px;
 }
@@ -1015,11 +1000,6 @@ body {
   flex: 0 0 24px;
   filter: brightness(0) invert(1);
   transition: filter 180ms ease;
-}
-
-.view-project-button:hover {
-  background: #ffffff;
-  color: #620909;
 }
 
 .view-project-button:hover img {
@@ -4813,6 +4793,175 @@ body {
     width: 46px;
     height: 46px;
   }
+}
+
+/* CUSTOM CURSOR */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(101, 9, 9, 0.7);
+  pointer-events: none;
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(1);
+
+  transition:
+    width 180ms ease,
+    height 180ms ease,
+    background-color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-hovering {
+  width: 42px;
+  height: 42px;
+  background: rgba(245, 201, 212, 0.7);
+  border: none;
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* Only replace the normal cursor on desktop */
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: none;
+  }
+}
+
+/* Keep the normal cursor on touch devices */
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+/* SLIDING BUTTON HOVER */
+
+.explore-button,
+.continue-button,
+.apply-filters-button,
+.view-project-button {
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #ffffff 50%,
+      #620909 50%,
+      #620909 100%
+    );
+
+  background-size: 210% 100%;
+  background-position: right center;
+
+  color: #ffffff;
+  overflow: hidden;
+
+  transition:
+    background-position 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 300ms ease,
+    transform 200ms ease;
+}
+
+.explore-button:hover,
+.continue-button:hover,
+.apply-filters-button:hover,
+.view-project-button:hover {
+  background-position: left center;
+  color: #620909;
+}
+
+/* Keep arrow icons visible */
+.view-project-button img {
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 300ms ease;
+}
+
+.view-project-button:hover img {
+  transform: translateX(5px);
+  filter: brightness(0) saturate(100%)
+    invert(10%) sepia(68%) saturate(3397%)
+    hue-rotate(354deg) brightness(82%) contrast(105%);
+}
+
+/* Slight tactile press */
+.explore-button:active,
+.continue-button:active,
+.apply-filters-button:active,
+.view-project-button:active {
+  transform: scale(0.96);
+}
+
+/* TWO-WAY SLIDING BUTTON TRANSITION */
+
+.explore-button,
+.continue-button,
+.apply-filters-button,
+.view-project-button {
+  background-image: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 50%,
+    #620909 50%,
+    #620909 100%
+  );
+
+  background-size: 200% 100%;
+  background-position: 100% 0;
+
+  color: #ffffff;
+
+  transition:
+    background-position 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 300ms ease;
+}
+
+.explore-button:hover,
+.continue-button:hover,
+.apply-filters-button:hover,
+.view-project-button:hover {
+  /* Keep the same gradient—only move it */
+  background-image: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 50%,
+    #620909 50%,
+    #620909 100%
+  );
+
+  background-position: 0 0;
+  color: #620909;
+}
+
+/* Remove gradient seam on View Project buttons */
+
+.view-project-button {
+  background-color: #620909;
+  background-size: 205% 100%;
+  background-position: 100% center;
+  background-repeat: no-repeat;
+}
+
+.view-project-button:hover {
+  background-size: 205% 100%;
+  background-position: 0 center;
 }
 
 /* RESPONSIVE */
