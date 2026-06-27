@@ -1,150 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Evopia | Jane's Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="project-body evopia-body">
-  <header class="project-header">
-    <a href="index.html" class="project-logo">Jane's Portfolio</a>
+<body class="ev-page">
 
-    <nav class="project-nav">
+  <header class="ev-header">
+    <a href="index.html" class="ev-logo">Jane's Portfolio</a>
+
+    <nav class="ev-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
-      <a href="works.html?filters=all">Works</a>
-      <a href="#">Contact</a>
+      <a href="works.html">Works</a>
+      <a href="mailto:your-email@example.com">Contact</a>
     </nav>
   </header>
 
   <main>
-    <div class="floating-circles evopia-floating-circles" aria-hidden="true">
-        <span class="circle circle-one"></span>
-        <span class="circle circle-two"></span>
-        <span class="circle circle-three"></span>
-        <span class="circle circle-four"></span>
-        <span class="circle circle-five"></span>
-        <span class="circle circle-six"></span>
-        <span class="circle circle-seven"></span>
-        <span class="circle circle-eight"></span>
-        <span class="circle circle-nine"></span>
-        <span class="circle circle-ten"></span>
-    </div>
 
-    <section class="project-hero evopia-hero">
-      <a href="works.html?filters=all" class="project-back evopia-back">‹ Go Back</a>
+    <!-- HERO -->
 
-      <div class="project-hero-copy evopia-hero-copy">
-        <p class="project-year">2026</p>
+    <section class="ev-hero">
+      <a href="works.html?filters=all" class="ev-back">‹ Go Back</a>
+
+      <div class="ev-hero-content">
+        <p class="ev-year">2026</p>
+
         <h1>Evopia</h1>
-        <p class="project-tagline">Designed for dreamers.</p>
 
-        <div class="project-tags">
-          <span>UI/UX</span>
-          <span>Figma</span>
-          <span>Front End Development</span>
-        </div>
+        <p class="ev-tagline">Designed for dreamers.</p>
+
+        <dl class="ev-details">
+          <div>
+            <dt>Role</dt>
+            <dd>UI/UX Designer</dd>
+          </div>
+
+          <div>
+            <dt>Duration</dt>
+            <dd>4 months</dd>
+          </div>
+
+          <div>
+            <dt>Tools</dt>
+            <dd>Figma, HTML, CSS, JavaScript</dd>
+          </div>
+        </dl>
       </div>
 
-      <div class="project-scroll-hint evopia-scroll-hint">
+      <a href="#experience" class="ev-scroll">
         <span>↓</span>
         Scroll to explore
+      </a>
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section class="ev-section ev-experience" id="experience">
+      <div class="ev-section-label">
+        <span>01</span>
+        <strong>The Experience</strong>
+      </div>
+
+      <div class="ev-heading-grid">
+        <h2>Experience the<br>product</h2>
+
+        <p>
+          Before exploring the design process, visitors are invited to
+          experience Evopia firsthand. The desktop and mobile previews showcase
+          the final product as an interactive website, allowing the interface
+          to be explored exactly as it was intended.
+        </p>
+      </div>
+
+      <div class="ev-device-showcase">
+
+        <div class="ev-desktop-device">
+          <img
+            src="assets/evopia/desktop frame.png"
+            alt="Evopia desktop website presentation"
+          >
+
+          <div class="ev-desktop-screen">
+            <iframe
+              src="https://kay3242.github.io/Sleep-Is-For-The-Weak/"
+              title="Interactive Evopia desktop website"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="ev-phone-device">
+          <img
+            src="assets/evopia/phone_frame.png"
+            alt="Evopia mobile website presentation"
+          >
+
+          <div class="ev-phone-screen">
+            <iframe
+              src="https://kay3242.github.io/Sleep-Is-For-The-Weak/"
+              title="Interactive Evopia mobile website"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="evopia-desktop-section">
-        <h2>Desktop Version</h2>
-        <p class="evopia-section-subtitle">Interact with the screen</p>
+    <!-- VISUALS -->
 
-        <div class="evopia-desktop-frame">
-            <div class="evopia-desktop-screen">
-            <iframe
-                src="https://kay3242.github.io/Sleep-Is-For-The-Weak/"
-                title="Interactive Evopia desktop prototype"
-                loading="lazy"
-            ></iframe>
-            </div>
+    <section class="ev-section ev-visuals">
+      <div class="ev-section-label">
+        <span>02</span>
+        <strong>The Visuals</strong>
+      </div>
 
-            <img src="assets/evopia/desktop frame.png" alt="Evopia desktop frame" />
-        </div>
+      <div class="ev-heading-grid">
+        <h2>Designing for<br>better rest</h2>
+
+        <p>
+          Evopia was inspired by the rituals surrounding quality sleep.
+          Through imagery, colour and material references, I established a calm
+          visual language that communicates comfort, warmth and restoration.
+          These early explorations became the emotional foundation for the
+          final interface.
+        </p>
+      </div>
     </section>
 
-        <section class="evopia-mobile-section">
-            <h2>Mobile Version</h2>
-            <p class="evopia-section-subtitle">Interact with the screen</p>
+    <!-- INSPIRATION -->
 
-            <div class="evopia-mobile-layout">
-                <div class="evopia-phone-frame">
-                <div class="evopia-phone-screen">
-                    <iframe
-                    src="https://kay3242.github.io/Sleep-Is-For-The-Weak"
-                    title="Interactive Evopia mobile prototype"
-                    loading="lazy"
-                    ></iframe>
-                </div>
+    <section class="ev-section ev-inspiration">
+      <div class="ev-section-label">
+        <span>03</span>
+        <strong>The Inspiration</strong>
+      </div>
 
-                <img src="assets/evopia/phone_frame.png" alt="Evopia mobile frame" />
-                </div>
+      <div class="ev-heading-grid">
+        <h2>Building the<br>foundation</h2>
 
-                <div class="evopia-mobile-copy">
-                <p>Designed for dreamers, wherever they are.</p>
-                <p>Evopia's mobile experience brings the same calm and immersive atmosphere to smaller screens. From product discovery to checkout, interactions were carefully adapted to create a seamless shopping journey that feels intuitive and effortless.</p>
-                </div>
-            </div>
-        </section>
+        <p>
+          Before introducing visual styling, I focused on establishing a clear
+          information architecture. Low-fidelity wireframes explored navigation
+          patterns, product discovery and purchase flows, allowing
+          functionality to be refined independently from aesthetics.
+        </p>
+      </div>
 
-        <section class="evopia-timeline-section">
-            <h2>Timeline</h2>
+      <div class="ev-timeline-grid">
+        <ol class="ev-timeline-list">
+          <li><span>01</span>Moodboard</li>
+          <li><span>02</span>Sketches</li>
+        </ol>
 
-            <div class="evopia-timeline-list">
-                <div class="evopia-timeline-item">
-                <img src="assets/evopia/timeline_1.png" alt="Evopia research and concept timeline" />
+        <div class="ev-timeline-images">
+          <figure>
+            <img
+              src="assets/evopia/timeline_1.png"
+              alt="Evopia visual moodboard"
+            >
+            <span class="ev-image-number">01</span>
+          </figure>
 
-                <div class="evopia-timeline-copy">
-                    <p>Evopia was conceived around the idea that sleep is more than a necessity. Early visual explorations focused on soft textures, natural light, and peaceful environments to evoke feelings of comfort and restoration. These themes guided the development of both the brand identity and the final website experience.</p>
-                </div>
-                </div>
+          <figure>
+            <img
+              src="assets/evopia/timeline_2.png"
+              alt="Evopia interface sketches"
+            >
+            <span class="ev-image-number">02</span>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-                <div class="evopia-timeline-item">
-                <img src="assets/evopia/timeline_2.png" alt="Evopia wireframe sketches" />
+    <!-- STRUCTURE -->
 
-                <div class="evopia-timeline-copy">
-                    <p>Every experience begins with structure. These low-fidelity wireframes explored the hierarchy, navigation, and interaction patterns that would later shape Evopia's final interface. By separating usability from aesthetics, I was able to iterate quickly and establish a strong foundation for the user experience.</p>
-                </div>
-                </div>
+    <section class="ev-section ev-structure">
+      <div class="ev-section-label">
+        <span>04</span>
+        <strong>The Structure</strong>
+      </div>
 
-                <div class="evopia-timeline-item">
-                <img src="assets/evopia/timeline_3.png" alt="Evopia low fidelity wireframes" />
+      <div class="ev-heading-grid">
+        <h2>Refining the<br>experience</h2>
 
-                <div class="evopia-timeline-copy">
-                    <p>Once the overall architecture was defined, I explored mid-fidelity layouts to refine content placement and user interactions. This stage provided an opportunity to iterate rapidly and ensure a cohesive experience before applying the final visual identity.</p>
-                </div>
-                </div>
+        <p>
+          Before introducing visual styling, I focused on establishing a clear
+          information architecture. Low-fidelity wireframes explored navigation
+          patterns, product discovery and purchase flows, allowing
+          functionality to be refined independently from aesthetics.
+        </p>
+      </div>
 
-                <div class="evopia-timeline-item">
-                <img src="assets/evopia/timeline_4.png" alt="Evopia mobile interface design" />
+      <div class="ev-timeline-grid">
+        <ol class="ev-timeline-list">
+          <li><span>03</span>Wireframes</li>
+          <li><span>04</span>Style Directions</li>
+        </ol>
 
-                <div class="evopia-timeline-copy">
-                    <p>Building upon the foundations established in earlier stages, I explored various visual directions to define Evopia's identity. Drawing from themes of comfort and tranquillity, I developed a warm and minimalist interface that emphasises clarity, atmosphere, and ease of navigation.</p>
-                </div>
-                </div>
+        <div class="ev-timeline-images">
+          <figure>
+            <img
+              src="assets/evopia/timeline_3.png"
+              alt="Evopia interface wireframes"
+            >
+            <span class="ev-image-number">03</span>
+          </figure>
 
-                <div class="evopia-timeline-item">
-                <img src="assets/evopia/timeline_5.png" alt="Evopia desktop interface design" />
+          <figure>
+            <img
+              src="assets/evopia/timeline_4.png"
+              alt="Evopia mobile visual design direction"
+            >
+            <span class="ev-image-number">04</span>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-                <div class="evopia-timeline-copy">
-                    <p>The final interface was constructed and organised in Figma, allowing components, layouts, and interactions to be refined before development. This process provided a clear foundation for translating the design into a fully functional website.</p>
-                </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <script src="showcase.js"></script>
+    <!-- FINAL DESIGN -->
+
+    <section class="ev-section ev-final-design">
+      <div class="ev-section-label">
+        <span>05</span>
+        <strong>The Final Design</strong>
+      </div>
+
+      <div class="ev-heading-grid">
+        <h2>Bring everything<br>together</h2>
+
+        <p>
+          The final design brought Evopia's visual identity and interaction
+          system together. Components, responsive layouts and interface states
+          were refined to create a cohesive experience across desktop and
+          mobile devices.
+        </p>
+      </div>
+
+      <div class="ev-timeline-grid">
+        <ol class="ev-timeline-list">
+          <li><span>05</span>Prototype</li>
+          <li><span>06</span>Development</li>
+        </ol>
+
+        <div class="ev-timeline-images">
+          <figure>
+            <img
+              src="assets/evopia/timeline_5.png"
+              alt="Evopia final desktop interface in Figma"
+            >
+            <span class="ev-image-number">05</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+
+    <section class="ev-section ev-conclusion">
+      <div class="ev-section-label">
+        <span>06</span>
+        <strong>The Conclusion</strong>
+      </div>
+
+      <div class="ev-heading-grid">
+        <h2>Looking back</h2>
+
+        <p>
+          Evopia strengthened my understanding of designing beyond static
+          interfaces. By carrying the project from research and prototyping
+          through to development, I gained valuable experience translating
+          design decisions into responsive, functional code while balancing
+          usability with visual storytelling.
+        </p>
+      </div>
+    </section>
+
+  </main>
 </body>
 </html>

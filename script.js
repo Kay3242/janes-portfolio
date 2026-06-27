@@ -430,7 +430,7 @@ function initWorksPage() {
     const savedTags = sessionStorage.getItem("portfolioSelectedTags");
 
     if (!savedTags) {
-      return new Set(["Branding", "Graphic Design", "Prints"]);
+      return new Set();
     }
 
     try {

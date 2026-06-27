@@ -1,198 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Pause Club | Jane's Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="project-body">
-  <header class="project-header">
-    <a href="index.html" class="project-logo">Jane’s Portfolio</a>
 
-    <nav class="project-nav">
+<body class="pc-page">
+
+  <header class="pc-header">
+    <a href="index.html" class="pc-logo">Jane's Portfolio</a>
+
+    <nav class="pc-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
-      <a href="works.html?filters=all">Works</a>
-      <a href="#">Contact</a>
+      <a href="works.html">Works</a>
+      <a href="mailto:your-email@example.com">Contact</a>
     </nav>
   </header>
 
   <main>
-    <div class="floating-circles" aria-hidden="true">
-        <span class="circle circle-one"></span>
-        <span class="circle circle-two"></span>
-        <span class="circle circle-three"></span>
-        <span class="circle circle-four"></span>
-        <span class="circle circle-five"></span>
-        <span class="circle circle-six"></span>
-        <span class="circle circle-seven"></span>
-        <span class="circle circle-eight"></span>
-        <span class="circle circle-nine"></span>
-        <span class="circle circle-ten"></span>
-    </div>
 
-    <section class="project-hero pause-club-hero">
-      <a href="works.html?filters=all" class="project-back">‹ Go Back</a>
+    <!-- HERO -->
 
-      <div class="project-hero-copy">
-        <p class="project-year">2026</p>
+    <section class="pc-hero">
+      <a href="works.html?filters=all" class="pc-back">‹ Go Back</a>
+
+      <div class="pc-hero-content">
+        <p class="pc-year">2026</p>
+
         <h1>Pause Club</h1>
-        <p class="project-tagline">Rest is resistance.</p>
 
-        <div class="project-tags">
-          <span>Branding</span>
-          <span>Prints</span>
-          <span>Graphic Design</span>
-        </div>
+        <p class="pc-tagline">Rest is resistance.</p>
+
+        <dl class="pc-project-details">
+          <div>
+            <dt>Role</dt>
+            <dd>Graphic Designer</dd>
+          </div>
+
+          <div>
+            <dt>Duration</dt>
+            <dd>4 weeks</dd>
+          </div>
+
+          <div>
+            <dt>Tools</dt>
+            <dd>Adobe Creative Suite</dd>
+          </div>
+        </dl>
       </div>
 
-      <div class="project-scroll-hint">
+      <a href="#overview" class="pc-scroll">
         <span>↓</span>
         Scroll to explore
+      </a>
+    </section>
+
+    <!-- OVERVIEW -->
+
+    <section class="pc-section pc-overview" id="overview">
+      <div class="pc-section-number">
+        <span>01</span>
+        <strong>Overview</strong>
+      </div>
+
+      <div class="pc-intro-grid">
+        <h2>Understanding<br>the problem</h2>
+
+        <div class="pc-copy">
+          <p>
+            Pause Club was developed in response to increasing student burnout
+            in Australia. The visual direction explores rest as a form of
+            resistance, creating a brand that encourages students to slow down
+            without guilt.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="project-section project-carousel-section">
-        <h2>Mockups</h2>
+    <!-- PROCESS -->
 
-        <div class="project-carousel" id="pauseClubCarousel">
-            <button type="button" class="carousel-button carousel-prev" aria-label="Previous mockup">
-                <img src="assets/back-svgrepo-com(1).svg" alt="" />
-            </button>
+    <section class="pc-section pc-process">
+      <div class="pc-section-number">
+        <span>02</span>
+        <strong>Process</strong>
+      </div>
 
-            <div class="carousel-viewport">
-            <img src="assets/pause club/carousel_1.png" alt="Pause Club mockup 1" class="carousel-slide active" />
-            <img src="assets/pause club/carousel_2.png" alt="Pause Club mockup 2" class="carousel-slide" />
-            <img src="assets/pause club/carousel_3.png" alt="Pause Club mockup 3" class="carousel-slide" />
-            <img src="assets/pause club/carousel_4.png" alt="Pause Club mockup 4" class="carousel-slide" />
-            <img src="assets/pause club/carousel_5.png" alt="Pause Club mockup 5" class="carousel-slide" />
-            <img src="assets/pause club/carousel_6.png" alt="Pause Club mockup 6" class="carousel-slide" />
-            <img src="assets/pause club/carousel_7.png" alt="Pause Club mockup 7" class="carousel-slide" />
-            <img src="assets/pause club/carousel_8.png" alt="Pause Club mockup 8" class="carousel-slide" />
-            <img src="assets/pause club/carousel_9.png" alt="Pause Club mockup 9" class="carousel-slide" />
-            <img src="assets/pause club/carousel_10.png" alt="Pause Club mockup 10" class="carousel-slide" />
-            <img src="assets/pause club/carousel_11.png" alt="Pause Club mockup 11" class="carousel-slide" />
-            </div>
+      <div class="pc-intro-grid">
+        <h2>Exploring the<br>identity</h2>
 
-            <button type="button" class="carousel-button carousel-next" aria-label="Next mockup">
-                <img src="assets/back-svgrepo-com(1).svg" alt="" />
-            </button>
-
-            <div class="carousel-dots" aria-label="Carousel pagination"></div>
+        <div class="pc-copy">
+          <p>
+            Every visual decision was driven by a single question:
+            <em>How can rest feel inviting?</em> Rather than communicating
+            stress, the identity embraces warmth, optimism and moments of joy.
+            Soft curves, expressive typography and cheerful colours work
+            together to encourage students to pause and recharge.
+          </p>
         </div>
+      </div>
+
+      <div class="pc-process-layout">
+        <ol class="pc-process-list">
+          <li><span>01</span>Stylescapes</li>
+          <li><span>02</span>Logo Sketches</li>
+          <li><span>03</span>Logo Exploration</li>
+          <li><span>04</span>Font Exploration</li>
+        </ol>
+
+        <div class="pc-process-images">
+          <figure>
+            <img
+              src="assets/pause club/timeline_1.png"
+              alt="Pause Club stylescape explorations"
+            >
+            <span class="pc-image-number">01</span>
+          </figure>
+
+          <figure>
+            <img
+              src="assets/pause club/timeline_2.png"
+              alt="Pause Club logo sketches"
+            >
+            <span class="pc-image-number">02</span>
+          </figure>
+
+          <figure>
+            <img
+              src="assets/pause club/timeline_3.png"
+              alt="Pause Club logo explorations"
+            >
+            <span class="pc-image-number">03</span>
+          </figure>
+        </div>
+      </div>
     </section>
 
-    <section class="guidelines-section">
-        <div class="guidelines-copy">
-            <h2>Guidelines</h2>
-            <p class="guidelines-kicker">Brand Guidelines</p>
+    <!-- BRAND SYSTEM -->
 
-            <div class="guidelines-text" id="guidelinesText">
-            <div class="guidelines-copy-slide active">
-                <p>The primary logo application uses black on light backgrounds to maintain maximum visibility and readability across print and digital formats. The reversed white logo should only be used on dark backgrounds where the primary logo becomes visually inaccessible.</p>
-                <p>Maintain consistent proportions and spacing across all logo colour variations.</p>
-            </div>
+    <section class="pc-section pc-brand-system">
+      <div class="pc-intro-grid">
+        <h2>Building the<br>brand system</h2>
 
-            <div class="guidelines-copy-slide">
-                <p>Maintain minimum clear space around the logo at all times.</p>
-                <p>Do not recreate the approved logo manually. Use only the approved logo files provided. Do not distort, rotate, skew the logo in any way.</p>
-            </div>
-
-            <div class="guidelines-copy-slide">
-                <p>Our secondary colour palette is used to support the primary brand colours across Pause Club’s branding system. These colours are primarily applied within backgrounds, supporting graphics, packaging, and environmental applications to create balance and reduce visual overstimulation across layouts.</p>
-                <p>The secondary palette is intended to complement the primary colours rather than compete with them, reinforcing the brand’s themes of rest, emotional care, and mental pause.</p>
-            </div>
-
-            <div class="guidelines-copy-slide">
-                <p>The Pause Club typography system should maintain clear visual hierarchy and accessibility across all brand applications.</p>
-                <p>Tumb Regular is reserved for logos, major headlines, and key campaign statements, while Forager Bold is used for supporting headings, titles, and product names.</p>
-            </div>
-
-            <div class="guidelines-copy-slide">
-                <p>Different font weights may be used depending on hierarchy, readability, and application context, while still preserving the brand’s playful and approachable visual identity.</p>
-                <p>Heavier weights such as Bold and Medium should be prioritised for headings, titles, and key statements, while lighter weights may be used sparingly for supporting information and minimal layouts.</p>
-            </div>
-
-            <div class="guidelines-copy-slide">
-                <p>The Pause Club graphic element system uses soft geometric forms and rounded organic shapes to reinforce the brand’s themes of emotional expression, comfort, and approachability. These elements are designed to support the character system and create visually recognisable assets across digital and physical touchpoints.</p>
-                <p>Graphic elements may be used as supporting backgrounds, decorative assets, framing devices, stickers, packaging graphics, and environmental applications throughout the brand system.</p>
-            </div>
-
-            <div class="guidelines-copy-slide">
-                <p>Pause Club communicates using a calm, supportive, and emotionally aware tone of voice.</p>
-                <p>Messaging should feel approachable and conversational while encouraging moments of rest, reflection, and emotional honesty within high-pressure academic environments.</p>
-            </div>
-
-            <div class="guidelines-copy-slide">
-                <p>Do not use colour combinations with insufficient contrast. Do not apply unapproved colours outside the official brand palette. Do not add gradients, shadows, textures, bevels, or three dimensional effects.</p>
-                <p>Do not repeat, stack, or pattern the logo in a way that reduces clarity or legibility. Do not add outlines, decorative effects, or additional graphic elements to the logo.</p>
-            </div>
-            </div>
+        <div class="pc-copy">
+          <p>
+            Every element of the identity was designed to reinforce Pause
+            Club's message of slowing down without guilt. Cheerful
+            illustrations, expressive typography and warm colours combine to
+            create a visual language that feels welcoming, uplifting and
+            instantly recognisable.
+          </p>
         </div>
+      </div>
 
-        <div class="guidelines-carousel" id="guidelinesCarousel">
-            <button type="button" class="carousel-button carousel-prev" aria-label="Previous guideline">
-            <img src="assets/back-svgrepo-com(1).svg" alt="" />
-            </button>
+      <div class="pc-process-layout">
+        <ol class="pc-process-list pc-brand-list">
+          <li><span>05</span>Logo</li>
+          <li><span>06</span>Colours</li>
+          <li><span>07</span>Typography</li>
+          <li><span>08</span>Graphic Elements</li>
+        </ol>
 
-            <div class="carousel-viewport">
-            <img src="assets/pause club/guidelines_1.png" alt="Pause Club brand guideline 1" class="carousel-slide active" />
-            <img src="assets/pause club/guidelines_2.png" alt="Pause Club brand guideline 2" class="carousel-slide" />
-            <img src="assets/pause club/guidelines_3.png" alt="Pause Club brand guideline 3" class="carousel-slide" />
-            <img src="assets/pause club/guidelines_4.png" alt="Pause Club brand guideline 4" class="carousel-slide" />
-            <img src="assets/pause club/guidelines_5.png" alt="Pause Club brand guideline 5" class="carousel-slide" />
-            <img src="assets/pause club/guidelines_6.png" alt="Pause Club brand guideline 6" class="carousel-slide" />
-            <img src="assets/pause club/guidelines_7.png" alt="Pause Club brand guideline 7" class="carousel-slide" />
-            <img src="assets/pause club/guidelines_8.png" alt="Pause Club brand guideline 8" class="carousel-slide" />
-            </div>
+        <div class="pc-carousel">
+          <div class="pc-carousel-track">
 
-            <button type="button" class="carousel-button carousel-next" aria-label="Next guideline">
-            <img src="assets/back-svgrepo-com(1).svg" alt="" />
-            </button>
+            <article class="pc-slide" id="guideline-1">
+              <img
+                src="assets/pause club/guidelines_1.png"
+                alt="Pause Club logo guidelines"
+              >
+              <a href="#guideline-8" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-2" class="pc-arrow pc-arrow-right">›</a>
+            </article>
 
-            <div class="carousel-dots" aria-label="Guideline carousel pagination"></div>
+            <article class="pc-slide" id="guideline-2">
+              <img
+                src="assets/pause club/guidelines_2.png"
+                alt="Pause Club colour guidelines"
+              >
+              <a href="#guideline-1" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-3" class="pc-arrow pc-arrow-right">›</a>
+            </article>
+
+            <article class="pc-slide" id="guideline-3">
+              <img
+                src="assets/pause club/guidelines_3.png"
+                alt="Pause Club typography guidelines"
+              >
+              <a href="#guideline-2" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-4" class="pc-arrow pc-arrow-right">›</a>
+            </article>
+
+            <article class="pc-slide" id="guideline-4">
+              <img
+                src="assets/pause club/guidelines_4.png"
+                alt="Pause Club graphic elements"
+              >
+              <a href="#guideline-3" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-5" class="pc-arrow pc-arrow-right">›</a>
+            </article>
+
+            <article class="pc-slide" id="guideline-5">
+              <img
+                src="assets/pause club/guidelines_5.png"
+                alt="Pause Club brand guideline"
+              >
+              <a href="#guideline-4" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-6" class="pc-arrow pc-arrow-right">›</a>
+            </article>
+
+            <article class="pc-slide" id="guideline-6">
+              <img
+                src="assets/pause club/guidelines_6.png"
+                alt="Pause Club brand guideline"
+              >
+              <a href="#guideline-5" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-7" class="pc-arrow pc-arrow-right">›</a>
+            </article>
+
+            <article class="pc-slide" id="guideline-7">
+              <img
+                src="assets/pause club/guidelines_7.png"
+                alt="Pause Club brand guideline"
+              >
+              <a href="#guideline-6" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-8" class="pc-arrow pc-arrow-right">›</a>
+            </article>
+
+            <article class="pc-slide" id="guideline-8">
+              <img
+                src="assets/pause club/guidelines_8.png"
+                alt="Pause Club brand guideline"
+              >
+              <a href="#guideline-7" class="pc-arrow pc-arrow-left">‹</a>
+              <a href="#guideline-1" class="pc-arrow pc-arrow-right">›</a>
+            </article>
+
+          </div>
+
+          <div class="pc-carousel-dots" aria-label="Brand guideline slides">
+            <a href="#guideline-1" aria-label="Slide 1"></a>
+            <a href="#guideline-2" aria-label="Slide 2"></a>
+            <a href="#guideline-3" aria-label="Slide 3"></a>
+            <a href="#guideline-4" aria-label="Slide 4"></a>
+            <a href="#guideline-5" aria-label="Slide 5"></a>
+            <a href="#guideline-6" aria-label="Slide 6"></a>
+            <a href="#guideline-7" aria-label="Slide 7"></a>
+            <a href="#guideline-8" aria-label="Slide 8"></a>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="timeline-section" aria-labelledby="timelineTitle">
-    <h2 id="timelineTitle">Timeline</h2>
+    <!-- MOCKUPS -->
 
-    <div class="timeline-list">
-        <div class="timeline-item">
-            <img src="assets/pause club/timeline_1.png" alt="Pause Club visual research timeline board" />
-            
-            <div class="timeline-copy"> 
-                <p>These stylescapes explore different visual directions for Pause Club’s branding system through experimentation with colour, typography, illustration, and graphic language. Each direction tested different ways the brand could communicate emotional support, student wellbeing, and resistance against burnout culture.</p>
-                <p>Stylescape 3 was ultimately selected because its softer rounded forms, playful characters, and bright pastel palette created a more approachable and emotionally supportive identity.</p>
-            </div>
+    <section class="pc-section pc-mockups">
+      <div class="pc-section-number">
+        <span>03</span>
+        <strong>Mockups</strong>
+      </div>
+
+      <div class="pc-intro-grid">
+        <h2>Bringing the<br>brand to life</h2>
+
+        <div class="pc-copy">
+          <p>
+            A brand only becomes meaningful when it exists beyond the page.
+            Through thoughtful applications across print, packaging and
+            promotional materials, Pause Club transforms its visual identity
+            into an experience that is both memorable and approachable.
+          </p>
+        </div>
+      </div>
+
+      <div class="pc-carousel pc-mockup-carousel">
+        <div class="pc-carousel-track">
+
+          <article class="pc-slide" id="mockup-1">
+            <img
+              src="assets/pause club/carousel_1.png"
+              alt="Pause Club affirmation card packaging"
+            >
+            <a href="#mockup-11" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-2" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-2">
+            <img
+              src="assets/pause club/carousel_2.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-1" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-3" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-3">
+            <img
+              src="assets/pause club/carousel_3.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-2" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-4" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-4">
+            <img
+              src="assets/pause club/carousel_4.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-3" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-5" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-5">
+            <img
+              src="assets/pause club/carousel_5.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-4" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-6" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-6">
+            <img
+              src="assets/pause club/carousel_6.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-5" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-7" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-7">
+            <img
+              src="assets/pause club/carousel_7.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-6" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-8" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-8">
+            <img
+              src="assets/pause club/carousel_8.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-7" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-9" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-9">
+            <img
+              src="assets/pause club/carousel_9.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-8" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-10" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-10">
+            <img
+              src="assets/pause club/carousel_10.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-9" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-11" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
+          <article class="pc-slide" id="mockup-11">
+            <img
+              src="assets/pause club/carousel_11.png"
+              alt="Pause Club brand mockup"
+            >
+            <a href="#mockup-10" class="pc-arrow pc-arrow-left">‹</a>
+            <a href="#mockup-1" class="pc-arrow pc-arrow-right">›</a>
+          </article>
+
         </div>
 
-        <div class="timeline-item">
-            <img src="assets/pause club/timeline_2.png" alt="Pause Club logo sketch explorations" />
-
-            <div class="timeline-copy"> 
-                <p>These early sketches explore different ways Pause Club could visually communicate emotional rest, support, and resistance against burnout culture.</p>
-                <p>The sketching stage allowed different visual directions, compositions, and emotional tones to be tested before refining the final identity system.</p>
-            </div>
+        <div class="pc-carousel-dots" aria-label="Mockup slides">
+          <a href="#mockup-1" aria-label="Slide 1"></a>
+          <a href="#mockup-2" aria-label="Slide 2"></a>
+          <a href="#mockup-3" aria-label="Slide 3"></a>
+          <a href="#mockup-4" aria-label="Slide 4"></a>
+          <a href="#mockup-5" aria-label="Slide 5"></a>
+          <a href="#mockup-6" aria-label="Slide 6"></a>
+          <a href="#mockup-7" aria-label="Slide 7"></a>
+          <a href="#mockup-8" aria-label="Slide 8"></a>
+          <a href="#mockup-9" aria-label="Slide 9"></a>
+          <a href="#mockup-10" aria-label="Slide 10"></a>
+          <a href="#mockup-11" aria-label="Slide 11"></a>
         </div>
-
-        <div class="timeline-item">
-            <img src="assets/pause club/timeline_3.png" alt="Pause Club logo development options" class="timeline-logo-image" />
-            
-            <div class="timeline-copy"> 
-                <p>These early logo explorations experimented with integrating emotional characters and simplified graphic forms directly into the identity system. Several variations were ultimately rejected because the overall compositions felt too clean, minimal, or visually static, reducing the playful and expressive energy central to Pause Club’s identity.</p>
-        
-            </div>
-        </div>
-    </div>
+      </div>
     </section>
+
+    <!-- REFLECTION -->
+
+    <section class="pc-section pc-reflection">
+      <div class="pc-section-number">
+        <span>04</span>
+        <strong>Reflection</strong>
+      </div>
+
+      <div class="pc-intro-grid">
+        <h2>Final thoughts</h2>
+
+        <div class="pc-copy">
+          <p>
+            Pause Club became an exploration of how design can communicate care
+            without feeling clinical. Through continuous refinement, I
+            developed an identity system that balances personality with
+            purpose—one that is adaptable across campaigns while remaining true
+            to its message of encouraging students to pause, rest and recharge.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <script src="showcase.js"></script>
+  <script src="carousel.js"></script>
 </body>
 </html>
