@@ -4964,6 +4964,397 @@ body {
   background-position: 0 center;
 }
 
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+.contact-body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f5c9d4;
+}
+
+/* Header */
+
+.contact-header {
+  position: relative;
+  z-index: 20;
+
+  height: 70px;
+  padding: 0 38px 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #ffffff;
+}
+
+.contact-logo {
+  color: #650909;
+
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 30px;
+  line-height: 1;
+
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.contact-nav {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.contact-nav a {
+  position: relative;
+
+  color: #120606;
+  font-size: 12px;
+  font-weight: 500;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 180ms ease;
+}
+
+.contact-nav a::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+
+  height: 2px;
+  background: #650909;
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-nav a:hover,
+.contact-nav a.active {
+  color: #650909;
+}
+
+.contact-nav a:hover::after,
+.contact-nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Main contact scene */
+
+.contact-page {
+  position: relative;
+
+  height: calc(100vh - 70px);
+  min-height: 570px;
+
+  overflow: hidden;
+
+  background-image: url("assets/contact.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact-content {
+  position: absolute;
+  top: 50%;
+  left: clamp(30px, 3.5vw, 64px);
+  z-index: 5;
+
+  width: min(58vw, 760px);
+
+  transform: translateY(-48%);
+}
+
+/* Typing title */
+
+.contact-title {
+  min-height: 2.05em;
+
+  color: #650909;
+
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(68px, 7vw, 108px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+
+  text-transform: uppercase;
+}
+
+.contact-highlight {
+  color: #ffffff;
+}
+
+#contactTypingText::after {
+  content: "|";
+
+  display: inline-block;
+  margin-left: 7px;
+
+  animation: contactCursorBlink 0.7s infinite;
+}
+
+#contactTypingText.done::after {
+  display: none;
+}
+
+@keyframes contactCursorBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Contact links */
+
+.contact-links {
+  display: flex;
+  gap: clamp(22px, 3vw, 46px);
+
+  margin-top: 28px;
+
+  opacity: 0;
+  transform: translateY(24px);
+
+  transition:
+    opacity 650ms ease,
+    transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-links.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-links a {
+  position: relative;
+
+  color: #250606;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(16px);
+
+  transition:
+    color 180ms ease,
+    opacity 500ms ease,
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-links.is-visible a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-links.is-visible a:nth-child(1) {
+  transition-delay: 80ms;
+}
+
+.contact-links.is-visible a:nth-child(2) {
+  transition-delay: 180ms;
+}
+
+.contact-links.is-visible a:nth-child(3) {
+  transition-delay: 280ms;
+}
+
+.contact-links a::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+
+  height: 1px;
+  background: currentColor;
+
+  transform: scaleX(1);
+  transform-origin: left;
+
+  transition: transform 240ms ease;
+}
+
+.contact-links a:hover {
+  color: #ffffff;
+}
+
+.contact-links a:hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.contact-links a span {
+  display: inline-block;
+  transition: transform 240ms ease;
+}
+
+.contact-links a:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* Floating palm-tree cloud */
+
+.contact-floating-art {
+  position: absolute;
+  right: clamp(-80px, -2vw, -20px);
+  bottom: clamp(-95px, -7vh, -45px);
+  z-index: 3;
+
+  width: min(58vw, 760px);
+  height: auto;
+
+  pointer-events: none;
+
+  filter: drop-shadow(
+    0 30px 45px rgba(73, 48, 108, 0.14)
+  );
+
+  transform-origin: 52% 60%;
+  will-change: transform;
+
+  animation: contactFloat 6.5s ease-in-out infinite;
+}
+
+@keyframes contactFloat {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(-0.35deg);
+  }
+
+  50% {
+    transform:
+      translate3d(0, -18px, 0)
+      rotate(0.45deg);
+  }
+}
+
+/* Copyright */
+
+.contact-copyright {
+  position: absolute;
+  bottom: 22px;
+  left: clamp(30px, 3.5vw, 64px);
+  z-index: 5;
+
+  color: rgba(37, 6, 6, 0.48);
+  font-size: 11px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .contact-content {
+    top: 38%;
+    width: calc(100vw - 60px);
+
+    transform: translateY(-50%);
+  }
+
+  .contact-title {
+    font-size: clamp(62px, 11vw, 92px);
+  }
+
+  .contact-floating-art {
+    right: -90px;
+    width: min(78vw, 680px);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .contact-header {
+    height: 74px;
+    padding: 0 16px;
+  }
+
+  .contact-logo {
+    font-size: 24px;
+  }
+
+  .contact-nav {
+    gap: 18px;
+  }
+
+  .contact-nav a {
+    font-size: 11px;
+  }
+
+  .contact-page {
+    height: calc(100svh - 74px);
+    min-height: 600px;
+  }
+
+  .contact-content {
+    top: 27%;
+    left: 20px;
+
+    width: calc(100vw - 40px);
+  }
+
+  .contact-title {
+    min-height: 2.9em;
+
+    font-size: clamp(54px, 17vw, 76px);
+    line-height: 0.94;
+  }
+
+  .contact-links {
+    flex-wrap: wrap;
+    gap: 18px 28px;
+
+    margin-top: 20px;
+  }
+
+  .contact-floating-art {
+    right: -120px;
+    bottom: -38px;
+
+    width: min(118vw, 650px);
+  }
+
+  .contact-copyright {
+    bottom: 15px;
+    left: 20px;
+
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-floating-art {
+    animation: none;
+  }
+
+  .contact-links,
+  .contact-links a {
+    transition-duration: 0.01ms;
+  }
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {

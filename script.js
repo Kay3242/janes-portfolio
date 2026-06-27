@@ -683,3 +683,85 @@ function initCustomCursor() {
 }
 
 document.addEventListener("DOMContentLoaded", initCustomCursor);
+
+/* CONTACT PAGE */
+
+function initContactPage() {
+  const typingTarget =
+    document.getElementById("contactTypingText");
+
+  const contactLinks =
+    document.getElementById("contactLinks");
+
+  if (!typingTarget) return;
+
+  const textParts = [
+    {
+      text: "LET'S START\nSOMETHING ",
+      highlight: false
+    },
+    {
+      text: "AMAZING.",
+      highlight: true
+    }
+  ];
+
+  const characters = textParts.flatMap((part) => {
+    return [...part.text].map((character) => ({
+      character,
+      highlight: part.highlight
+    }));
+  });
+
+  let characterIndex = 0;
+  let highlightSpan = null;
+
+  function typeNextCharacter() {
+    if (characterIndex >= characters.length) {
+      typingTarget.classList.add("done");
+
+      if (contactLinks) {
+        contactLinks.classList.add("is-visible");
+      }
+
+      return;
+    }
+
+    const item = characters[characterIndex];
+
+    if (item.character === "\n") {
+      typingTarget.appendChild(
+        document.createElement("br")
+      );
+
+      highlightSpan = null;
+    } else if (item.highlight) {
+      if (!highlightSpan) {
+        highlightSpan =
+          document.createElement("span");
+
+        highlightSpan.className =
+          "contact-highlight";
+
+        typingTarget.appendChild(highlightSpan);
+      }
+
+      highlightSpan.textContent += item.character;
+    } else {
+      typingTarget.appendChild(
+        document.createTextNode(item.character)
+      );
+    }
+
+    characterIndex += 1;
+
+    window.setTimeout(typeNextCharacter, 72);
+  }
+
+  typeNextCharacter();
+}
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initContactPage
+);
