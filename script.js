@@ -857,3 +857,55 @@ document.addEventListener(
   "DOMContentLoaded",
   initProjectBackToTop
 );
+
+/* TIMELINE IMAGE SCROLL ANIMATION */
+
+function initTimelineAnimations() {
+  const timelineImages = document.querySelectorAll(
+    ".timeline-float-in"
+  );
+
+  if (!timelineImages.length) return;
+
+  document.documentElement.classList.add(
+    "timeline-animation-ready"
+  );
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    timelineImages.forEach((image) => {
+      image.classList.add("is-visible");
+    });
+
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+
+        /* Animate only once */
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -8% 0px"
+    }
+  );
+
+  timelineImages.forEach((image) => {
+    observer.observe(image);
+  });
+}
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initTimelineAnimations
+);
