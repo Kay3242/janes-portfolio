@@ -765,3 +765,95 @@ document.addEventListener(
   "DOMContentLoaded",
   initContactPage
 );
+
+/* =========================================================
+   PROJECT PAGE — BACK TO TOP BUTTON
+   ========================================================= */
+
+function initProjectBackToTop() {
+  const projectHero = document.querySelector(
+    [
+      ".pc-hero",
+      ".ev-hero",
+      ".rm-hero",
+      ".nx-hero",
+      ".sy-hero",
+      ".jy-hero",
+      ".ys-hero"
+    ].join(", ")
+  );
+
+  /* Do not create the button on Home, Works or Contact */
+  if (!projectHero) return;
+
+  const button = document.createElement("button");
+
+  button.type = "button";
+  button.className = "back-to-top";
+  button.setAttribute("aria-label", "Back to top");
+  button.setAttribute("title", "Back to top");
+
+  button.innerHTML = `
+    <span class="back-to-top-arrow" aria-hidden="true">
+      ↑
+    </span>
+  `;
+
+  document.body.appendChild(button);
+
+  let scrollFrame;
+
+  function updateButtonVisibility() {
+    const heroBottom =
+      projectHero.getBoundingClientRect().bottom;
+
+    button.classList.toggle(
+      "is-visible",
+      heroBottom <= 0
+    );
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      cancelAnimationFrame(scrollFrame);
+
+      scrollFrame = requestAnimationFrame(
+        updateButtonVisibility
+      );
+    },
+    { passive: true }
+  );
+
+  button.addEventListener("click", () => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    window.scrollTo({
+      top: 0,
+      behavior: reduceMotion ? "auto" : "smooth"
+    });
+  });
+
+  /* Connect it to your custom cursor */
+  const customCursor =
+    document.querySelector(".custom-cursor");
+
+  if (customCursor) {
+    button.addEventListener("mouseenter", () => {
+      customCursor.classList.add("is-hovering");
+    });
+
+    button.addEventListener("mouseleave", () => {
+      customCursor.classList.remove("is-hovering");
+    });
+  }
+
+  updateButtonVisibility();
+}
+
+document.addEventListener(
+  "DOMContentLoaded",
+  initProjectBackToTop
+);
