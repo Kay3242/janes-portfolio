@@ -909,3 +909,53 @@ document.addEventListener(
   "DOMContentLoaded",
   initTimelineAnimations
 );
+
+function initEvopiaIframeViewportLock() {
+  const desktopScreen = document.querySelector(".ev-desktop-screen");
+  const desktopIframe = document.querySelector(".ev-desktop-screen iframe");
+
+  const phoneScreen = document.querySelector(".ev-phone-screen");
+  const phoneIframe = document.querySelector(".ev-phone-screen iframe");
+
+  function fitIframe(screen, iframe, viewportWidth, viewportHeight, mode = "contain") {
+    if (!screen || !iframe) return;
+
+    const screenRect = screen.getBoundingClientRect();
+
+    const scale =
+      mode === "cover"
+        ? Math.max(
+            screenRect.width / viewportWidth,
+            screenRect.height / viewportHeight
+          )
+        : Math.min(
+            screenRect.width / viewportWidth,
+            screenRect.height / viewportHeight
+          );
+
+    const x = (screenRect.width - viewportWidth * scale) / 2;
+    const y = (screenRect.height - viewportHeight * scale) / 2;
+
+    iframe.style.width = `${viewportWidth}px`;
+    iframe.style.height = `${viewportHeight}px`;
+    iframe.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+  }
+
+  function updateIframes() {
+    fitIframe(desktopScreen, desktopIframe, 1440, 810, "cover");
+    fitIframe(phoneScreen, phoneIframe, 390, 770, "cover");
+  }
+
+  updateIframes();
+
+  window.addEventListener("resize", updateIframes);
+
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(updateIframes);
+
+    if (desktopScreen) observer.observe(desktopScreen);
+    if (phoneScreen) observer.observe(phoneScreen);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", initEvopiaIframeViewportLock);
